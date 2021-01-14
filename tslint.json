@@ -1,0 +1,56 @@
+{
+	"defaultSeverity": "warning",
+	"extends": [
+		"tslint:recommended",
+		"tslint-react"
+	],
+	"jsRules": true,
+	"linterOptions": {
+		"exclude": [
+			"src/svg/**"
+		]
+	},
+	"rules": {
+		"arrow-parens": false,
+		"comment-format": false,
+		"indent": [true, "tabs", 4],
+		"interface-name": [true, "always-prefix"],
+		"jsx-alignment": true,
+		"jsx-boolean-value": true,
+		"jsx-no-lambda": false,
+		"jsx-no-multiline-js": false,
+		"jsx-space-before-trailing-slash": false,
+		"jsx-wrap-multiline": {
+			"declaration": "parens",
+			"assignment": "parens",
+			"return": "parens",
+			"arrow": "parens",
+			"condition": "ignore",
+			"logical": "ignore",
+			"prop": "ignore"
+		},
+		"max-classes-per-file": [true, 5, "exclude-class-expressions"],
+		"max-line-length": false,
+		"member-access": false,
+		"no-console": {
+			"options": [true, "log"],
+			"severity": "warning"
+		},
+		"no-empty": false,
+		"no-reference": false,
+		"no-unused-expression": [true, "allow-fast-null-checks"],
+		"no-var-requires": false,
+		"object-literal-key-quotes": [true, "consistent"],
+		"one-line": [
+			false,
+			"check-catch",
+			"check-finally",
+			"check-else"
+		],
+		"ordered-imports": false,
+		"quotemark": [true, "single", "jsx-double"],
+		"space-before-function-paren": "always",
+		"trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+		"variable-name": [true, "ban-keywords", "allow-leading-underscore"]
+	}
+}

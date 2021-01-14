@@ -1,0 +1,54 @@
+@import './_partials/index';
+
+:global {
+	* {
+		box-sizing: border-box;
+		cursor: default;
+		-webkit-user-drag: none;
+	}
+
+	html {
+		width: 100%;
+		height: 100%;
+		font-size: 62.5%; // set rems to have a base of 10
+	}
+
+	body {
+		outline: none;
+
+		&.using-mouse :focus {
+			outline: none;
+		}
+
+		&:focus {
+			@include defaultOutline;
+		}
+	}
+
+	body,
+	div#styleguide-container {
+		margin: 0;
+		@include fullWidthHeight;
+		@include theme-background-white-else-graydark;
+	}
+
+	input,
+	select {
+		@include defaultFontAndTextSettings;
+	}
+
+	[disabled] {
+		pointer-events: none !important;
+	}
+
+	// this is a global style that would ultimately benefit from both being moved to a global file within `flywheel-local` (for app.html, app-windows.html) while also being scoped to `BigLoader` with a prop toggle
+	.MainPanel {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		position: relative;
+		flex-grow: 1;
+	}
+}

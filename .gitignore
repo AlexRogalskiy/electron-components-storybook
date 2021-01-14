@@ -1,0 +1,12 @@
+dist
+node_modules
+.idea
+*.log
+.DS_Store
+/style.css
+/style.css.map
+/storybook-static
+*.tgz
+/src/svg/*.tsx
+!/src/global.d.ts
+/coverage

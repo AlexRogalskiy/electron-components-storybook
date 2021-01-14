@@ -1,0 +1,20 @@
+@import '../../../styles/_partials/index';
+
+.BigLoader {
+	text-align: center;
+	justify-content: center;
+	position: relative;
+}
+
+.BigLoader__Text {
+	position: absolute;
+	bottom: 50px;
+	width: 100%;
+	font-weight: 300;
+	color: $gray;
+	@include tracking(-20);
+
+	@at-root .__Before-React-Loaded .BigLoader > h3 {
+		font-family: $system-font;
+	}
+}

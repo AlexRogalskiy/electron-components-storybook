@@ -1,0 +1,79 @@
+@import '../../../styles/_partials/index';
+
+@mixin svgStylesAndMouseEffects {
+	&.IconCheckbox__Disabled {
+		svg path {
+			@include theme-fill-gray15-else-gray;
+		}
+	}
+
+	&:not(.IconCheckbox__Disabled) {
+		// mouse down
+		&:active {
+			transform: scale(0.9);
+		}
+
+		// default unchecked and not using icon colors
+		&:not(.IconCheckbox__Checked):not(.IconCheckbox__UseIconColorsOnUnchecked) {
+			&:not(:hover),
+			&:hover.IconCheckbox__DisableHoverStyles {
+				svg path {
+					// need to force theme selector because of specificity issue (even though light and dark mode are the same)
+					@include __theme-fill($gray75, $gray75);
+				}
+			}
+		}
+
+		// checked and not using icon colors
+		&.IconCheckbox__Checked:not(.IconCheckbox__UseIconColorsOnChecked) {
+			&:not(:hover),
+			&:hover.IconCheckbox__DisableHoverStyles {
+				svg path {
+					@include theme-fill-graydark-else-white;
+				}
+			}
+		}
+
+		// hover
+		&:hover:not(.IconCheckbox__DisableHoverStyles) {
+			// unchecked and not using icon colors
+			&:not(.IconCheckbox__Checked):not(.IconCheckbox__UseIconColorsOnUncheckedHover),
+			// checked and not using icon colors
+			&.IconCheckbox__Checked:not(.IconCheckbox__UseIconColorsOnCheckedHover) {
+				svg path {
+					// need to force theme selector because of specificity issue (even though light and dark mode are the same)
+					@include __theme-fill($gray, $gray);
+				}
+			}
+		}
+	}
+}
+
+.IconCheckbox {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0; // if this is a child within a flexbox parent, don't let it shrink or distort this component's size
+	height: 24px;
+	width: 24px;
+	transition: transform 0.1s ease 0s;
+	@include svgStylesAndMouseEffects;
+}
+
+.IconCheckbox_InputHidden {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.IconCheckbox_Icon {
+	overflow: inherit;
+}

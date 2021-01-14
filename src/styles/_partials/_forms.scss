@@ -1,0 +1,23 @@
+@mixin flywheelInput() {
+	-webkit-appearance: none;
+	transition: box-shadow .1s;
+	outline: none;
+	border: 0;
+	border-radius: 4px;
+	padding: 20px;
+	width: 100%;
+	@include theme-input-background-color;
+	@include theme-input-border-box-shadow;
+	@include theme-color-graydark-else-white;
+	cursor: text;
+
+	&:focus {
+		outline: none;
+		box-shadow: inset 0 0 0 2px $green;
+	}
+
+	&.__Invalid,
+	&.__Invalid:focus {
+		box-shadow: inset 0 0 0 2px $red;
+	}
+}

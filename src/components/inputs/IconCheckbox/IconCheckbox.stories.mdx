@@ -1,0 +1,80 @@
+import IconCheckbox from "./IconCheckbox";
+import { YellowStarIcon } from './_private/StarIcons';
+
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+
+<Meta title="Inputs/IconCheckbox" component={IconCheckbox} />
+
+The `IconCheckbox` component takes an `Icon` prop representing an svg and, by default, automatically overrides its
+path fill colors to provide consistent styles for unchecked, unchecked hover, checked, and checked hover states.
+
+### Default
+
+Default style overriddes with change handler.
+
+<Canvas>
+	<Story name="Default">
+		<div>
+			<IconCheckbox
+				Icon={YellowStarIcon}
+				onChange={(checked) =>
+					console.log("onChange - checked: ", checked)
+				}
+			/>
+		</div>
+	</Story>
+</Canvas>
+
+### Turning off color overrides
+
+If you'd like to turn off the default color overrides and use the passed in `Icon` svg's path colors instead,
+there are 4 states props that can be set to `true`:
+
+- useIconColorsOnChecked
+- useIconColorsOnCheckedHover
+- useIconColorsOnUnchecked
+- useIconColorsOnUncheckedHover
+
+In the example below, the star icon uses `useIconColorsOnChecked` and `useIconColorsOnUncheckedHover` hover states
+to turn on its original svg icon path colors and get that nice golden star effect.
+
+<Canvas>
+    <Story name="Use svg colors">
+        <div>
+            <IconCheckbox
+                Icon={YellowStarIcon}
+                onChange={(checked) =>
+                    console.log("onChange - checked: ", checked)
+                }
+                useIconColorsOnChecked
+                useIconColorsOnUncheckedHover
+            />
+        </div>
+    </Story>
+</Canvas>
+
+### Set `checked` prop to true
+
+<Canvas>
+	<Story name="Checked">
+		<div>
+			<IconCheckbox
+				checked
+                Icon={YellowStarIcon}
+			/>
+		</div>
+	</Story>
+</Canvas>
+
+### Disabling the component
+
+<Canvas>
+	<Story name="Disabled &amp; Unchecked">
+		<div>
+			<IconCheckbox
+				disabled
+                Icon={YellowStarIcon}
+			/>
+		</div>
+	</Story>
+</Canvas>
